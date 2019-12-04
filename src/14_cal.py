@@ -22,3 +22,23 @@ and does the following:
 import sys
 import calendar
 from datetime import datetime
+
+#y = int(input("Input the year : "))
+#m = int(input("Input the month : "))
+c = calendar.TextCalendar()
+def pats_calendar(*args):
+    if len(args) == 0:
+        current = datetime.now()
+        printDate = c.formatmonth(current.year, current.month)
+        print(printDate)
+    elif len(args) == 1:
+        current = datetime.now()
+        printDate = c.formatmonth(current.year, int(args[0]))
+        print(printDate)
+    elif len(args) == 2:
+        printDate = c.formatmonth(int(args[0]), int(args[1]))
+        print(printDate)
+    else:
+        print("please add the four digit year, and a number indicating the month, separated by a comma => cmd: python cal.py [month] [year]")
+
+pats_calendar('1992', '3')
